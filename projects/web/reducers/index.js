@@ -4,7 +4,6 @@ import catalogRecuder from './catalog';
 import userRecuder from './user';
 
 export default function findReducers(moduleName) {
-
   if (!moduleName) {
     throw new Error('we must specific `moduleName` to construct corresponding final reducers');
   }

@@ -8,7 +8,7 @@ import routes from './routes';
 const initialState = window.__INITIAL_STATE__;
 
 // specific module reducers 'member'
-const store = configureStore('member', initialState);
+const store = configureStore('catalog', initialState);
 
 const rootElement = document.getElementById('react-view');
 

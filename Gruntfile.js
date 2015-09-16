@@ -15,7 +15,7 @@ module.exports = function (grunt) {
       isomorphic: {
         script: './isomorphic',
         options: {
-          nodeArgs: [ /*'--debug'*/ ],
+          nodeArgs: [ /*'--debug' */],
           ignore: ['node_modules/**'],
           env: {
             PORT: '2000',

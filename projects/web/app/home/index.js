@@ -8,7 +8,7 @@ import routes from './routes';
 const initialState = window.__INITIAL_STATE__;
 
 // specific module reducers 'wslist'.
-const store = configureStore('wslist', initialState);
+const store = configureStore('home', initialState);
 
 const rootElement = document.getElementById('react-view');
 
