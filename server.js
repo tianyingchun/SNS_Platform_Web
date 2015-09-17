@@ -86,8 +86,6 @@ function handleRender(req, res) {
       return;
     }
 
-    const head = React.renderToString(React.createFactory(HtmlHead)({ links: cssBundles || [] }));
-
     function renderView() {
 
       profiler.step('fetchComponentData');
@@ -101,6 +99,7 @@ function handleRender(req, res) {
       );
 
       const componentHTML = React.renderToString(InitialView);
+      const head = React.renderToString(React.createFactory(HtmlHead)({ links: cssBundles || [] }));
 
       const initialState = store.getState();
 
