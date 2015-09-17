@@ -121,7 +121,11 @@ function handleRender(req, res) {
       `;
       profiler.step('renderFullPageHtml');
 
-      return minify(HTML);
+      return minify(HTML, {
+        removeEmptyAttributes: true,
+        removeScriptTypeAttributes: true,
+        collapseWhitespace: true
+      });
     }
 
     fetchComponentData(store.dispatch, renderProps.components, renderProps.params)
