@@ -13,7 +13,7 @@ let initialState = {
 export function workspaces (state = initialState, action) {
 
   let list = Array.isArray(state) ? state : state.list;
-  console.log('workspaces reducer payload: ', action.payload)
+  console.log('workspaces reducer action: ', action)
 
   switch (action.type) {
     case WsActionTypes.SHOW_WS_LIST:
@@ -40,6 +40,8 @@ export function workspaces (state = initialState, action) {
 }
 
 export function workspaceOthers (state = '', action) {
+  console.log('workspaceOthers reducer action: ', action)
+
   switch (action.type) {
     case WsActionTypes.GET_WS_LIST:
 
