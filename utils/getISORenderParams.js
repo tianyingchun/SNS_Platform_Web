@@ -47,6 +47,10 @@ const getRenderParams = (req, env) => {
         _project.projectName = projectName;
         // sub project name.
         _project.subProjectName = subProjectName;
+
+        // the project meta info.
+        _project.metaInfo = project._metaInfo || {};
+
         return false;
       }
     });
@@ -59,13 +63,19 @@ const getRenderParams = (req, env) => {
   });
 
   if (_.isObject(fundProject)) {
-    let version = fundProject.version || '';
+    let version = fundProject.metaInfo.version || '';
 
     // generate all css bundle files.
     _.each(fundProject.cssBundles || [], function (css) {
-      cssBundles.push(url.resolve(cdnRoot, _.template(css)({
+      let linkHref = url.resolve(cdnRoot, _.template(css)({
         version: version
-      })));
+      }));
+      let name = path.basename(linkHref, '.css');
+      var link = {
+        href: linkHref,
+        name: name
+      }
+      cssBundles.push(link);
     });
 
     // generate all js bundle files.
@@ -75,10 +85,13 @@ const getRenderParams = (req, env) => {
       })));
     });
 
+    let routePath;
     try {
+      routePath = path.join(process.cwd(), fundProject.routes);
       // the routes of current sub project(project).
-      routes = require(path.join(process.cwd(), fundProject.routes));
+      routes = require(routePath);
     } catch (e) {
+      console.log('require routes components has errors: ', routePath, e);
       routes = null;
     }
   } else {

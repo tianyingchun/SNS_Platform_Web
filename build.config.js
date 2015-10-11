@@ -29,6 +29,10 @@ module.exports = {
   projects: {
     // ${projectName}, project layers
     web: {
+      // the project meta config
+      _metaInfo: {
+        version: ''
+      },
       // ${subProjectName}, it contains multi module in business domain.
       home: {
         // server rendering url matching.
@@ -37,7 +41,7 @@ module.exports = {
         entry: './projects/web/app/home/index.js',
         routes: './projects/web/app/home/routes.js',
         version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'web/home/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'web/reactlib.js', 'web/home/bundle.js${version}'],
         cssBundles: ['web/home/bundle.css${version}']
       },
       catalog: {
@@ -45,7 +49,7 @@ module.exports = {
         entry: './projects/web/app/catalog/index.js',
         routes: './projects/web/app/catalog/routes.js',
         version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'web/catalog/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'web/reactlib.js', 'web/catalog/bundle.js${version}'],
         cssBundles: ['web/catalog/bundle.css${version}']
       },
       product: {
@@ -53,7 +57,7 @@ module.exports = {
         entry: './projects/web/app/product/index.js',
         routes: './projects/web/app/product/routes.js',
         version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'web/product/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'web/reactlib.js', 'web/product/bundle.js${version}'],
         cssBundles: ['web/product/bundle.css${version}']
       },
       user: {
@@ -61,12 +65,15 @@ module.exports = {
         entry: './projects/web/app/user/index.js',
         routes: './projects/web/app/user/routes.js',
         version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'web/user/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'web/reactlib.js', 'web/user/bundle.js${version}'],
         cssBundles: ['web/user/bundle.css${version}']
       }
     },
     admin: {
-
+      // the project meta config
+      _metaInfo: {
+        version: ''
+      }
     }
   }
 };

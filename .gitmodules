@@ -4,3 +4,9 @@
 [submodule "shared/react-ui"]
   path = shared/react-ui
   url = https://github.com/tianyingchun/react-ui.git
+[submodule "shared/react"]
+	path = shared/react
+	url = https://github.com/tianyingchun/react.git
+[submodule "shared/less"]
+	path = shared/less
+	url = https://github.com/tianyingchun/less.git

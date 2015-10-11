@@ -8,14 +8,14 @@ module.exports = function (grunt) {
         configFile: '.eslintrc'
       },
       react: [
-        './workspace/**/*{.jsx,.js}'
+        './projects/**/*.js'
       ]
     },
     nodemon: {
       isomorphic: {
         script: './bin/isomorphic',
         options: {
-          nodeArgs: [ /*'--debug' */],
+          nodeArgs: [ /*'--debug' */ ],
           ignore: ['node_modules/**'],
           env: {
             PORT: '2000',
@@ -50,7 +50,6 @@ module.exports = function (grunt) {
   require('./buildtool')(grunt);
 
   grunt.registerTask('server', ['nodemon:server']);
-
   grunt.registerTask('isomorphic', ['nodemon:isomorphic']);
 
 };
